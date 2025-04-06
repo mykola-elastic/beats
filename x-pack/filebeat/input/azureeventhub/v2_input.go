@@ -194,6 +194,7 @@ func (in *eventHubInputV2) setup(ctx context.Context) error {
 	// Manage the migration of the checkpoint information
 	// from the old Event Hub SDK to the new Event Hub SDK.
 	in.migrationAssistant = newMigrationAssistant(
+		in.config,
 		in.log,
 		consumerClient,
 		containerClient,
@@ -226,7 +227,6 @@ func (in *eventHubInputV2) run(ctx context.Context) {
 		err := in.migrationAssistant.checkAndMigrate(
 			ctx,
 			in.config.ConnectionString,
-			in.config.EventHubName,
 			in.config.ConsumerGroup,
 		)
 		if err != nil {
