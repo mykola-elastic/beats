@@ -216,22 +216,6 @@ func (conf *azureInputConfig) Validate() error {
 	return nil
 }
 
-// // validateConnectionStringV2 validates the connection string for processor v2.
-// func (conf *azureInputConfig) validateConnectionStringV2(props ConnectionStringProperties) error {
-// 	// First, check if the connection string is valid. We need to parse it
-// 	// to get the endpoint and the entity path.
-
-// 	if props.EntityPath != nil {
-// 		if *props.EntityPath != conf.EventHubName {
-// 			return fmt.Errorf("invalid connection string: entity path (%s) does not match event hub name (%s)", *props.EntityPath, conf.EventHubName)
-// 		}
-
-// 		conf.ConnectionStringContainsEntityPath = true
-// 	}
-
-// 	return nil
-// }
-
 // storageContainerValidate validated the storage_account_container to make sure it is conforming to all the Azure
 // naming rules.
 // To learn more, please check the Azure documentation visiting:
